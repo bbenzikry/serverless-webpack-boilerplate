@@ -1,0 +1,50 @@
+service: serverless-webpack-boilerplate
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+package:
+  exclude:
+    - .eslintrc.js
+    - .gitattributes
+    - .gitignore
+    - .npmrc
+    - .babelrc
+    - README.md
+    - serverless.yml
+  include:
+    - functions/**
+    - config/**
+    - core/**
+    - package.json
+
+custom:
+  webpackIncludeModules: true
+
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  cfLogs: true
+  runtime: nodejs6.10
+  stage: ${opt:stage}
+  region: ${opt:region}
+  memorySize: 512
+  stackTags:
+    squad: Test
+
+functions:
+  function1:
+    handler: function1.run
+    events:
+      - http:
+          path: send
+          method: post
+          cors: true
+
+  function2:
+    handler: function2.run
+    events:
+      - schedule: rate(1 minute)
+
+### yeoman hook ###
