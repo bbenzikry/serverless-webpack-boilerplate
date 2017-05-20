@@ -4,7 +4,6 @@
   "description": "A boilerplate for fast FaaS development using serverless-webpack",
   "scripts": {
     "serve": "serverless webpack serve",
-    "watch": "serverless webpack watch",
     "pack": "serverless webpack --out .webpack",
     "test": "jest || true",
     "build" : "jest && serverless webpack --out .webpack"
