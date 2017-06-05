@@ -5,8 +5,9 @@ export default class Function2 {
    *
     * @param {config} Configuration object
    */
-	constructor({config}) {
+	constructor({config, logger}) {
 		this.config = config;
+		this.logger = logger;
 	}
 
   /**

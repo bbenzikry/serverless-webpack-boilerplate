@@ -5,8 +5,9 @@ export default class Function1 {
    *
    * @param {config} Configuration object
    */
-	constructor({config}) {
+	constructor({config, logger}) {
 		this.config = config;
+		this.logger = logger;
 	}
 
   /**
@@ -20,7 +21,7 @@ export default class Function1 {
 	run(event, context) {
 		let context_use = context;
 		let event_use = event;
-
+		this.logger.info('in function 1');
 		return 'function1';
 	}
 

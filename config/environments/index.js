@@ -8,8 +8,8 @@ const environments = {development,production};
 // Get environment
 const ENV = process.env.NODE_ENV || 'development';
 
-if(!environments.includes(ENV)){
-	throw new Error('Environment definition not found');
+if(!environments[ENV]){
+	throw new Error(`Environment definition ${ENV} not found`);
 }
 
 // Export relevant environment config
